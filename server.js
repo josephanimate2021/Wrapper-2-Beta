@@ -12,6 +12,8 @@ const stp = require('./static/page');
 const asl = require('./asset/load');
 const asL = require('./asset/list');
 const ast = require('./asset/thmb');
+const mtp = require('./movie/page');
+const Mtp = require('./movie/remote');
 const mvl = require('./movie/load');
 const mvL = require('./movie/list');
 const mvm = require('./movie/meta');
@@ -44,6 +46,8 @@ const functions = [
 	asu,
 	stp,
 	stl,
+	mtp,
+	Mtp
 ];
 
 module.exports = http.createServer((req, res) => {
