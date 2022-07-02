@@ -21,7 +21,7 @@ module.exports = function (req, res, url) {
 			console.log('Adding preview information.');
 			const ip = req.headers['x-forwarded-for'];
 			req.on('end', () => res.end());
-			movie.save(('preview', req, ip);
+			movie.save('preview', req, ip);
 			return true;
 		}
 	}
