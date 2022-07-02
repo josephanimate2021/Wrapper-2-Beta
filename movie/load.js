@@ -7,7 +7,7 @@ module.exports = function (req, res, url) {
 			switch (url.path) {
 				case '/goapi/getPreview': {
 					const ip = req.headers['x-forwarded-for'];
-					const stream = preview.pop(ip);
+					const stream = movie.load(ip);
 					stream.pipe(res);
 					return true;
 				}
