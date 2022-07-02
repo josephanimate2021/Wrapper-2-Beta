@@ -5,6 +5,7 @@ const nodezip = require('node-zip');
 const fs = require('fs');
 const { timeLog } = require('console');
 const folder = process.env.SAVED_FOLDER;
+var caché = {};
 
 module.exports = {
 	/**
@@ -48,6 +49,9 @@ module.exports = {
 				default: rej();
 			}
 		});
+	},
+	presave(data, ip) {
+		caché[ip] = data;
 	},
 	loadZip(mId) {
 		return new Promise((res, rej) => {
