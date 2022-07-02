@@ -4,22 +4,32 @@ const base = Buffer.alloc(1, 0);
 module.exports = function (req, res, url) {
 	switch (req.method) {
 		case 'GET': {
-			const match = req.url.match(/\/movies\/([^.]+)(?:\.(zip|xml))?$/);
-			if (!match) return;
+			switch (url.path) {
+				case '/goapi/getPreview': {
+					const ip = req.headers['x-forwarded-for'];
+					const stream = preview.pop(ip);
+					stream.pipe(res);
+					return true;
+				}
+				default: {
+					const match = req.url.match(/\/movies\/([^.]+)(?:\.(zip|xml))?$/);
+					if (!match) return;
 
-			var id = match[1], ext = match[2];
-			switch (ext) {
-				case 'zip':
-					res.setHeader('Content-Type', 'application/zip');
-					movie.loadZip(id).then(v => { res.statusCode = 200, res.end(v) })
-						.catch(e => { res.statusCode = 404, res.end() })
-					break;
-				default:
-					res.setHeader('Content-Type', 'text/xml');
-					movie.loadXml(id).then(v => { res.statusCode = 200, res.end(v) })
-						.catch(e => { res.statusCode = 404, res.end() })
+					var id = match[1], ext = match[2];
+					switch (ext) {
+						case 'zip':
+							res.setHeader('Content-Type', 'application/zip');
+							movie.loadZip(id).then(v => { res.statusCode = 200, res.end(v) })
+								.catch(e => { res.statusCode = 404, res.end() })
+							break;
+						default:
+							res.setHeader('Content-Type', 'text/xml');
+							movie.loadXml(id).then(v => { res.statusCode = 200, res.end(v) })
+								.catch(e => { res.statusCode = 404, res.end() })
+					}
+					return true;
+				}
 			}
-			return true;
 		}
 
 		case 'POST': {
