@@ -4,7 +4,7 @@ const fUtil = require('../fileUtil');
 const nodezip = require('node-zip');
 const fs = require('fs');
 const { timeLog } = require('console');
-const folder = process.env.PREVIEW_FOLDER;
+const folder = process.env.SAVED_FOLDER;
 
 module.exports = {
 	/**
