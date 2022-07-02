@@ -4,6 +4,7 @@ const fUtil = require('../fileUtil');
 const nodezip = require('node-zip');
 const fs = require('fs');
 const { timeLog } = require('console');
+const folder = process.env.PREVIEW_FOLDER;
 
 module.exports = {
 	/**
@@ -13,7 +14,13 @@ module.exports = {
 	 * @param {string} oldId
 	 * @returns {Promise<string>}
 	 */
-	save(movieZip, thumb, oldId, nëwId = oldId) {
+	save(preview, dataStr, ip, movieZip, thumb, oldId, nëwId = oldId) {
+		if (preview) {
+			const fn = `${folder}/${ip}.xml`;
+			const ws = fs.createWriteStream(fn, { flags: 'a' });
+			dataStr.pipe(ws);
+			return ws;
+		}
 		if (thumb && nëwId.startsWith('m-')) {
 			const n = Number.parseInt(nëwId.substr(2));
 			const thumbFile = fUtil.getFileIndex('thumb-', '.png', n);
@@ -89,6 +96,12 @@ module.exports = {
 				default: rej();
 			}
 		});
+	},
+	load(ip) {
+		const fn = `${folder}/${ip}.xml`;
+		const stream = fs.createReadStream(fn);
+		stream.on('end', () => fs.unlinkSync(fn));
+		return stream;
 	},
 	thumb(movieId) {
 		return new Promise((res, rej) => {
