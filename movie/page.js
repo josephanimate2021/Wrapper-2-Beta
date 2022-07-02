@@ -12,6 +12,7 @@ module.exports = function (req, res, url) {
 
 	var object;
 	let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId : `m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', 'xml')}`;
+	let movieId = presave;
 	let ip = req.headers['x-forwarded-for'];
 	switch (url.pathname) {
 		case "/go_full": {
@@ -38,6 +39,7 @@ module.exports = function (req, res, url) {
 					}
 				}
 			}
+			movie.presave(movieId, ip)
 			break;
 		}
 		case "/previewVideo": {
