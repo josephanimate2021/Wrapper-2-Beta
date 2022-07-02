@@ -60,49 +60,6 @@ module.exports = function (req, res, url) {
 			};
 			break;
 		}
-		
-		case '/go_full': {
-			let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
-				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
-			title = 'Video Editor';
-			attrs = {
-				data: process.env.SWF_URL + '/go_full.swf',
-				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
-			};
-			params = {
-				flashvars: {
-					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'isEmbed': 1, 'ctc': 'go',
-					'ut': 60, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
-					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tlang': 'en_US',
-					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': '/pages/html/list.html',
-				},
-				allowScriptAccess: 'always',
-			};
-			sessions.set({ movieId: presave }, req);
-			break;
-		}
-
-		case '/go_full/2009': {
-			let presave = query.movieId && query.movieId.startsWith('m') ? query.movieId :
-				`m-${fUtil[query.noAutosave ? 'getNextFileId' : 'fillNextFileId']('movie-', '.xml')}`;
-			title = 'Video Editor For Wrapper Retro';
-			attrs = {
-				data: 'https://josephanimate2021.github.io/animation/857/go_full.swf',
-				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
-			};
-			params = {
-				flashvars: {
-					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'isEmbed': 1, 'ctc': 'go',
-					'ut': 60, 'bs': 'default', 'appCode': 'go', 'page': '', 'siteId': 'go', 'lid': 13, 'isLogin': 'Y', 'retut': 1,
-					'clientThemePath': process.env.CLIENT_URL + '/<client_theme>', 'themeId': 'business', 'tlang': 'en_US',
-					'presaveId': presave, 'goteam_draft_only': 1, 'isWide': 1, 'nextUrl': '/pages/html/list.html', 'movieId': '',
-					'tray': 'retro',
-				},
-				allowScriptAccess: 'always',
-			};
-			sessions.set({ movieId: presave }, req);
-			break;
-		}
 			
 		case '/player': {
 			title = 'Video Player';
