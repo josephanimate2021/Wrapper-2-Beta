@@ -14,13 +14,7 @@ module.exports = {
 	 * @param {string} oldId
 	 * @returns {Promise<string>}
 	 */
-	save(preview, dataStr, ip, movieZip, thumb, oldId, nëwId = oldId) {
-		if (preview) {
-			const fn = `${folder}/${ip}.xml`;
-			const ws = fs.createWriteStream(fn, { flags: 'a' });
-			dataStr.pipe(ws);
-			return ws;
-		}
+	save(movieZip, thumb, oldId, nëwId = oldId) {
 		if (thumb && nëwId.startsWith('m-')) {
 			const n = Number.parseInt(nëwId.substr(2));
 			const thumbFile = fUtil.getFileIndex('thumb-', '.png', n);
@@ -52,6 +46,12 @@ module.exports = {
 	presave(data, ip) {
 		var create = {};
 		create[ip] = data;
+	},
+	savePreview(dataStr, ip) {
+		const fn = `${folder}/${ip}.xml`;
+		const ws = fs.createWriteStream(fn, { flags: 'a' });
+		dataStr.pipe(ws);		
+		return ws;
 	},
 	loadZip(mId) {
 		return new Promise((res, rej) => {
