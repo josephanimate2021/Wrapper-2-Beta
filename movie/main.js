@@ -156,7 +156,7 @@ module.exports = {
 			duration: duration,
 			title: title,
 			id: movieId,
-			tags: tag,
+			tag: tag,
 		};
 	},
 }
