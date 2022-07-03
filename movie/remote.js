@@ -9,7 +9,6 @@ module.exports = function (req, res, url) {
 	if (req.method != "GET") return;
 	const query = url.query;
 
-	var params;
 	switch (url.pathname) {
 		case "/movieRemote": {
 			break;
@@ -19,7 +18,7 @@ module.exports = function (req, res, url) {
 			return;
 	}
 	res.setHeader("Content-Type", "text/html; charset=UTF-8");
-	Object.assign(params.flashvars, query);
+	Object.assign(query);
 	res.end(`<html>
 	<head>
 		<script>
