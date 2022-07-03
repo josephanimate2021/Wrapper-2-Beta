@@ -24,7 +24,7 @@ module.exports = function (req, res, url) {
 	<head>
 		<script>
 			function genorateId() { 
-				window.location = '${query.return}?newId=${query.movieId && query.movieId.startsWith("m") ? query.movieId : `m-${fUtil[query.noAutosave ? "getNextFileId" : "fillNextFileId"]("movie-", ".xml")}`}&tray=${query.theme}'; 
+				window.location = '${query.return}?newId=${query.movieId && query.movieId.startsWith("m") ? query.movieId : `m-${fUtil[query.noAutosave ? "getNextFileId" : "fillNextFileId"]("movie-", ".xml")}`}&tray=${query.theme}&api=${query.api}'; 
 			}
 		</script>
 	</head>
