@@ -53,8 +53,12 @@ module.exports = {
 		dataStr.pipe(ws);		
 		return ws;
 	},
-	loadError(message = 'An Error Has Occured While a movie was trying to load. This may have something to do with an non exsistant Movie Id. Please check the video list for your movie and try again later.') {
-		return `${message}`;
+	loadError(ERR_ASSET_404, message = 'An Error Has Occured While a movie was trying to load. This may have something to do with an non exsistant Movie Id. Please check the video list for your movie and try again later.') {
+		if (ERR_ASSET_404) {
+			return `<error><code>ERR_ASSET_404</code><message>${message}</message><text></text></error>`;
+		} else {
+			return `${message}`;
+		}
 	},
 	loadZip(mId) {
 		return new Promise((res, rej) => {
