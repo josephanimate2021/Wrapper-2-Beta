@@ -127,6 +127,7 @@
 			},
 			"content": "<?xml encoding=\"UTF-8\"?><watermarks><current/><preview/></watermarks>"
 		},
+		"/fbapi/getMovieInfo/":
 		"/goapi/getMovieInfo/": {
 			"headers": {
 				"Content-Type": "text/html; charset=UTF-8"
