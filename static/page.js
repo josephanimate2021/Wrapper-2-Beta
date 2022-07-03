@@ -60,22 +60,6 @@ module.exports = function (req, res, url) {
 			};
 			break;
 		}
-			
-		case '/player': {
-			title = 'Video Player';
-			attrs = {
-				data: process.env.SWF_URL + '/player.swf',
-				type: 'application/x-shockwave-flash', width: '100%', height: '100%',
-			};
-			params = {
-				flashvars: {
-					'apiserver': '/', 'storePath': process.env.STORE_URL + '/<store>', 'ut': 60,
-					'autostart': 1, 'isWide': 1, 'clientThemePath': process.env.CLIENT_URL + '/<client_theme>',
-				},
-				allowScriptAccess: 'always',
-			};
-			break;
-		}
 
 		default:
 			return;
