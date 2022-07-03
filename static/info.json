@@ -127,12 +127,17 @@
 			},
 			"content": "<?xml encoding=\"UTF-8\"?><watermarks><current/><preview/></watermarks>"
 		},
-		"/fbapi/getMovieInfo/":
+		"/fbapi/getMovieInfo/": {
+			"headers": {
+				"Content-Type": "text/html; charset=UTF-8"
+			},
+			"content": "<?xml encoding=\"UTF-8\"?><watermarks><current/><preview/></watermarks>"
+		},
 		"/goapi/getMovieInfo/": {
 			"headers": {
 				"Content-Type": "text/html; charset=UTF-8"
 			},
-			"content": "<?xml encoding=\"UTF-8\"?><watermarks><watermark style=\"g4s\"/></watermarks>"
+			"content": "<?xml encoding=\"UTF-8\"?><watermarks><watermark style=\"custom\"/></watermarks>"
 		}
 	},
 	"pages": {
