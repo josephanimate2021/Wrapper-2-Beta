@@ -1,11 +1,5 @@
 const fUtil = require("../fileUtil");
 const movie = require("./main");
-/**
- * @param {http.IncomingMessage} req
- * @param {http.ServerResponse} res
- * @param {import("url").UrlWithParsedQuery} url
- * @returns {boolean}
- */
 module.exports = function (req, res, url) {
 	if (req.method != "GET") return;
 	const query = url.query;
