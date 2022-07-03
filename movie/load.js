@@ -38,7 +38,7 @@ module.exports = function (req, res, url) {
 
 			movie.loadZip(url.query.movieId).then(b =>
 				res.end(Buffer.concat([base, b]))
-			).catch(e => res.end('1' + process.env.MOVIE_LOAD_ERROR));
+			).catch(e => res.end('1' + movie.loadError('An Error Has Occured While a movie was trying to load. This may have something to do with an non exsistant Movie Id. Please check the video list for your movie and try again later')));
 			return true;
 		}
 		default: return;
