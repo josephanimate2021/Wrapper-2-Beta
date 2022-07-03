@@ -136,10 +136,6 @@ module.exports = {
 		const begTitle = buffer.indexOf('<title>') + 16;
 		const endTitle = buffer.indexOf(']]></title>');
 		const title = buffer.slice(begTitle, endTitle).toString().trim().replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-		
-		const begTag = buffer.indexOf('<tag>') + 16;
-		const endTag = buffer.indexOf(']]></tag>');
-		const tag = buffer.slice(begTag, endTag).toString().trim().replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 		const begDuration = buffer.indexOf('duration="') + 10;
 		const endDuration = buffer.indexOf('"', begDuration);
@@ -156,7 +152,6 @@ module.exports = {
 			duration: duration,
 			title: title,
 			id: movieId,
-			tag: tag,
 		};
 	},
 }
