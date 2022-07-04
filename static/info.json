@@ -1,12 +1,5 @@
 {
 	"GET": {
-		"/$": {
-			"headers": {
-				"Location": "/pages/html/list.html"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
 		"/crossdomain.xml": {
 			"headers": {
 				"Content-Type": "text/html; charset=UTF-8"
