@@ -1,6 +1,6 @@
 {
 	"GET": {
-		"/index.html": {
+		"/": {
 			"headers": {
 				"Location": "/pages/html/list.html"
 			},
