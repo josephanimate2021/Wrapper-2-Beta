@@ -46,10 +46,10 @@ module.exports = {
 		}
 		return table;
 	},
-  delete() {
-    var id = fUtil.getValidFileIndicies('starter-', '.xml');
-    var thumbFile = fUtil.getFileIndex('starter-', '.png', id);
-    var xmlFile = fUtil.getFileIndex('starter-', '.xml', id);
-    fs.unlinkSync(thumbFile, xmlFile);
-  },
+	delete() {
+		var id = fUtil.getValidFileIndicies('starter-', '.xml');
+		var thumbFile = fUtil.getFileIndex('starter-', '.png', id);
+		var xmlFile = fUtil.getFileIndex('starter-', '.xml', id);
+		fs.unlinkSync(thumbFile, xmlFile);
+	},
 }
