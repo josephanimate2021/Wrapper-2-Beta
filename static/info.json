@@ -14,6 +14,20 @@
 			"statusCode": 302,
 			"content": ""
 		},
+		"/go/list": {
+			"headers": {
+				"Location": "/pages/html/list.html"
+			},
+			"statusCode": 302,
+			"content": ""
+		},
+		"/go/create": {
+			"headers": {
+				"Location": "/go_full?action=create&tray=retro&usePreviewWindowInStudio=true"
+			},
+			"statusCode": 302,
+			"content": ""
+		},
 		"/go/character_creator/family": {
 			"headers": {
 				"Location": "/cc?themeId=family&bs=adam"
