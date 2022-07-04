@@ -19,6 +19,8 @@ const mvL = require('./movie/list');
 const mvm = require('./movie/meta');
 const mvs = require('./movie/save');
 const mvt = require('./movie/thmb');
+const svs = require("./starter/save");
+const svt = require("./starter/thmb");
 const thL = require('./theme/list');
 const thl = require('./theme/load');
 const tsv = require('./tts/voices');
@@ -28,6 +30,8 @@ const url = require('url');
 
 const functions = [
 	mvL,
+	svs,
+	svt,
 	pmc,
 	asl,
 	evt,
