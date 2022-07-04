@@ -52,7 +52,7 @@ module.exports = {
 			var thumbFile = fUtil.getFileIndex('starter-', '.png', id);
 			var xmlFile = fUtil.getFileIndex('starter-', '.xml', id);
 			fs.unlinkSync(thumbFile, xmlFile);
-			res.end('s-' + id);
+			res('s-' + id);
 		});
 	},
 }
