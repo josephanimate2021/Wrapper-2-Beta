@@ -7,13 +7,6 @@
 			"statusCode": 302,
 			"content": ""
 		},
-		"/$": {
-			"headers": {
-				"Location": "/pages/html/list.html"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
 		"/go/list/": {
 			"headers": {
 				"Location": "/pages/html/list.html"
