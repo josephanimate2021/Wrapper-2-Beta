@@ -54,10 +54,9 @@ async function listAssets(data, makeZip) {
 
 module.exports = function (req, res, url) {
 	var makeZip = false; switch (url.path) {
-		case '/goapi/getUserAssets/': makeZip = true; break;
-		case '/goapi/getCommunityAssets/': makeZip = true; break;
-		case '/goapi/searchCommunityAssets/': makeZip = true; break;
-		case '/goapi/getUserAssetsXml/': break;
+		case '/goapi/getUserAssets/': break;
+		case '/goapi/getCommunityAssets/': break;
+		case '/goapi/searchCommunityAssets/': break;
 		default: return;
 	}
 
@@ -71,7 +70,7 @@ module.exports = function (req, res, url) {
 		}
 		case 'POST': {
 			loadPost(req, res).then(data => listAssets(data, makeZip)).then(buff => {
-				const type = makeZip ? 'application/zip' : 'text/xml';
+				const type = 'application/zip' && 'text/xml';
 				res.setHeader('Content-Type', type), res.end(buff);
 			});
 			return true;
