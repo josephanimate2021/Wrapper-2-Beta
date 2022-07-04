@@ -57,6 +57,7 @@ module.exports = function (req, res, url) {
 		case '/goapi/getUserAssets/': makeZip = true; break;
 		case '/goapi/getCommunityAssets/': makeZip = true; break;
 		case '/goapi/searchCommunityAssets/': makeZip = true; break;
+		case '/goapi/getUserAssetsXml/': break;
 		default: return;
 	}
 
