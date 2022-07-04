@@ -19,7 +19,7 @@ module.exports = function (req, res, url) {
 			});
 			return true;
 		}
-		case "/goapi/deleteUserTemplate/": {
+		case "/goapi/DeleteUserTemplate/": {
 			starter.delete();
 			break;
 		}
