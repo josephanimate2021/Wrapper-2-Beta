@@ -18,6 +18,7 @@ const mvl = require('./movie/load');
 const mvL = require('./movie/list');
 const mvm = require('./movie/meta');
 const mvs = require('./movie/save');
+const mvc = require('./movie/create');
 const mvt = require('./movie/thmb');
 const svs = require("./starter/save");
 const svt = require("./starter/thmb");
@@ -51,6 +52,7 @@ const functions = [
 	stp,
 	stl,
 	mtp,
+	mvc,
 	Mtp
 ];
 
