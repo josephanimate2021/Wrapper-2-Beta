@@ -1,78 +1,8 @@
 {
 	"GET": {
-		"/go/list/": {
+		"/$": {
 			"headers": {
 				"Location": "/pages/html/list.html"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/create/": {
-			"headers": {
-				"Location": "/go_full?action=create&tray=retro&usePreviewWindowInStudio=true"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/character_creator/family": {
-			"headers": {
-				"Location": "/cc?themeId=family&bs=adam"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/character_creator/cc2": {
-			"headers": {
-				"Location": "/cc?themeId=cc2"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/character_creator/spacecitizen": {
-			"headers": {
-				"Location": "/cc?themeId=spacecitizen"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/character_creator/anime": {
-			"headers": {
-				"Location": "/cc?themeId=anime&bs=guy"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/character_creator/chibi": {
-			"headers": {
-				"Location": "/cc?themeId=chibi"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/character_creator/ninjaanime": {
-			"headers": {
-				"Location": "/cc?themeId=ninjaanime"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/character_creator/botdf": {
-			"headers": {
-				"Location": "/cc?themeId=botdf"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/character_creator/business": {
-			"headers": {
-				"Location": "/cc?themeId=business"
-			},
-			"statusCode": 302,
-			"content": ""
-		},
-		"/go/character_creator/ninja": {
-			"headers": {
-				"Location": "/cc?themeId=ninja"
 			},
 			"statusCode": 302,
 			"content": ""
@@ -90,11 +20,6 @@
 			"content": "{\"message\":\"REQUEST_HAS_EXPIRED\"}"
 		},
 		"pages/html/(.*)": {
-			"headers": {
-				"Content-Type": "text/html; charset=UTF-8"
-			}
-		},
-		"index.html(.*)": {
 			"headers": {
 				"Content-Type": "text/html; charset=UTF-8"
 			}
