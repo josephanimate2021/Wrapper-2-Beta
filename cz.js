@@ -22,7 +22,7 @@ async function listAssets(data, makeZip) {
 			break;
 		}
 		default: {
-			files = asset.list(data.movieId, data.type);
+			files = asset.list(data.movieId, data);
 			xmlString = `${header}<ugc more="0">${files.map(v => asset.meta2Xml(v)).join("")}</ugc>`;
 			break;
 		}
