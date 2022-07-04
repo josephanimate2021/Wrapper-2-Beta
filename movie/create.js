@@ -1,6 +1,6 @@
 module.exports = function (req, res, url) {
 	if (req.method != 'GET') return;
-	const match = req.url.match(/\/go\/create$/);
+	const match = req.url.match(/\/go\/create\/$/);
 	if (!match) return;
       
 	res.statusCode = 302;
