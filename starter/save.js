@@ -9,11 +9,19 @@ const http = require("http");
  * @returns {boolean}
  */
 module.exports = function (req, res, url) {
-	if (req.method != "POST" || (url.path != "/goapi/saveTemplate/")) return;
-	loadPost(req, res).then(([data, mId]) => {
-		var body = Buffer.from(data.body_zip, "base64");
-		var thumb = data.thumbnail_large && Buffer.from(data.thumbnail_large, "base64");
-		starter.save(body, thumb).then((nId) => res.end("0" + nId));
-	});
-	return true;
+	if (req.method != "POST") return;
+	switch (url.path) {
+		case "/goapi/saveTemplate/": {
+			loadPost(req, res).then(([data, mId]) => {
+				var body = Buffer.from(data.body_zip, "base64");
+				var thumb = data.thumbnail_large && Buffer.from(data.thumbnail_large, "base64");
+				starter.save(body, thumb).then((nId) => res.end("0" + nId));
+			});
+			return true;
+		}
+		case "/goapi/deleteUserTemplate/": {
+			starter.delete();
+			break;
+		}
+	}
 };
