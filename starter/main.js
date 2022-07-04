@@ -47,9 +47,12 @@ module.exports = {
 		return table;
 	},
 	delete() {
-		var id = fUtil.getValidFileIndicies('starter-', '.xml');
-		var thumbFile = fUtil.getFileIndex('starter-', '.png', id);
-		var xmlFile = fUtil.getFileIndex('starter-', '.xml', id);
-		fs.unlinkSync(thumbFile, xmlFile);
+		return new Promise(async (res, rej) => {
+			var id = fUtil.getValidFileIndicies('starter-', '.xml');
+			var thumbFile = fUtil.getFileIndex('starter-', '.png', id);
+			var xmlFile = fUtil.getFileIndex('starter-', '.xml', id);
+			fs.unlinkSync(thumbFile, xmlFile);
+			res.end('s-' + id);
+		});
 	},
 }
