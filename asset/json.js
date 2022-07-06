@@ -27,7 +27,7 @@ async function listAssets(data) {
 			break;
 		}
 		case "bg": {
-			files = asset.list(data.movieId, "bg");
+			files = asset.getBackgrounds();
 			response = {
 				"status": "ok",
 				"data": {
@@ -40,7 +40,7 @@ async function listAssets(data) {
 		}
 		case "prop": {
 			if (data.subtype) {
-				files = asset.list(data.movieId. "prop", "video");
+				files = asset.getVideos();
 				response = {
 					"status": "ok",
 					"data": {
@@ -50,7 +50,7 @@ async function listAssets(data) {
 					}
 				};
 			} else {
-				files = asset.list(data.movieId, "prop");
+				files = asset.getProps();
 				response = {
 					"status": "ok",
 					"data": {
@@ -63,7 +63,7 @@ async function listAssets(data) {
 			break;
 		}
 		case "sound": {
-			files = asset.list(data.movieId, "sound");
+			files = asset.getSounds();
 			response = {
 				"status": "ok",
 				"data": {
