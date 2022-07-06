@@ -22,9 +22,8 @@ async function listAssets(data) {
 				}
 			}
 			files = await asset.chars(themeId);
-			response = `${header}<ugc more="0">${files
-				.map(v => `<char id="${v.id}" enc_asset_id="${v.id}" name="Untitled" cc_theme_id="${v.theme}" thumbnail_url="/char_thumbs/${v.id}.png" copyable="Y"><tags></tags></char>`)
-				.join("")}</ugc>`;
+			response = `${header}<ugc more="0">${chars.map(v => `<char id="${v.id}" name="Untitled" cc_theme_id="${
+				v.theme}" thumbnail_url="char_default.png" copyable="Y"><tags/></char>`).join('')}</ugc>`;
 			break;
 		}
 		case "bg": {
@@ -33,19 +32,7 @@ async function listAssets(data) {
 				"status": "ok",
 				"data": {
 					"xml": `${header}<ugc more="0">${files
-						.map(v => `<background subtype="0" id="${v.id}" enc_asset_id="${v.id}" name="${v.name}" enable="Y" asset_url="${process.env.CACHÉ_FOLDER}/${v.id}"/>`)
-						.join("")}</ugc>`
-				}
-			};
-			break;
-		}
-		case "movie": {
-			files = starter.list();
-			response = {
-				"status": "ok",
-				"data": {
-					"xml": `${header}<ugc more="0">${files
-						.map(v => `<movie id="${v.id}" enc_asset_id="${v.id}" path="/_SAVED/${v.id}" numScene="1" title="${v.name}" thumbnail_url="/starter_thumbs/${v.id}"><tags></tags></movie>`)
+						.map(v => `<background subtype="0" id="${v.id}" name="${v.name}" enable="Y"/>`)
 						.join("")}</ugc>`
 				}
 			};
@@ -81,7 +68,7 @@ async function listAssets(data) {
 				"status": "ok",
 				"data": {
 					"xml": `${header}<ugc more="0">${files
-						.map(v => `<sound subtype="${v.subtype}" id="${v.id}" enc_asset_id="${v.id}" name="${v.name}" enable="Y" duration="${v.duration}" downloadtype="progressive"/>`)
+						.map(v => `<sound subtype="${v.subtype}" id="${v.id}" name="${v.name}" enable="Y" duration="${v.duration}" downloadtype="progressive"/>`)
 						.join("")}</ugc>`
 				}
 			};
