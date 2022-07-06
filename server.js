@@ -11,7 +11,6 @@ const stl = require('./static/load');
 const stp = require('./static/page');
 const asl = require('./asset/load');
 const asL = require('./asset/list');
-const Asl = require('./Asset/list');
 const ast = require('./asset/thmb');
 const mtp = require('./movie/page');
 const Mtp = require('./movie/remote');
@@ -34,7 +33,6 @@ const url = require('url');
 const functions = [
 	mvL,
 	svs,
-	Asl,
 	svt,
 	pmc,
 	asl,
