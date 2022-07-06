@@ -1,6 +1,6 @@
 const loadPost = require('../request/post_body');
 const header = process.env.XML_HEADER;
-const asset = require('./main');
+const asset = require('../asset/main');
 
 async function listAssets(data) {
 	var response, files;
