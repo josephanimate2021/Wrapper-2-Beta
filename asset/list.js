@@ -6,8 +6,8 @@ const base = Buffer.alloc(1, 0);
 const asset = require('./main');
 const starter = require('../starter/main');
 
-async function listAssets(data, makeZip, useJson) {
-	if (useJson) {
+async function listAssets(data, makeZip, makeJson) {
+	if (makeJson == "true") {
 		var response, files;
 		switch (data.type) {
 			case "char": {
@@ -141,21 +141,33 @@ async function listAssets(data, makeZip, useJson) {
 }
 
 module.exports = function (req, res, url) {
-	var makeZip = false; var useJson = false; switch (url.path) {
-		case '/goapi/getUserAssets/': makeZip = true; break;
-		case '/goapi/getCommunityAssets/': makeZip = true; break;
-		case '/goapi/searchCommunityAssets/': makeZip = true; break;
-		case '/api_v2/assets/team': useJson = true; break;
-		case '/api_v2/assets/shared': useJson = true; break;	
-		case '/goapi/getUserAssetsXml/': break;
-		default: return;
+	var makeZip = false; 
+	var makeJson = false; 
+	switch (url.path) {
+		case '/goapi/getUserAssets/':
+		case '/goapi/getCommunityAssets/':
+		case '/goapi/searchCommunityAssets/': {
+			makeZip = true; 
+			break;
+		}
+		case '/api_v2/assets/team':
+		case '/api_v2/assets/shared': {
+			makeJson = "true"; 
+			break;	
+		}
+		case '/goapi/getUserAssetsXml/': {
+			break;
+		}
+		default: {
+			return;
+		}
 	}
 	var type;
 	switch (req.method) {
 		case 'GET': {
 			listAssets(url.query, makeZip).then(buff => {
-				if (useJson) {
-					type = 'application/json';
+				if (makeJson) {
+					type = makeJson ? 'application/json' : 'text/html';
 				} else {
 					type = makeZip ? 'application/zip' : 'text/xml';
 				}
@@ -165,8 +177,8 @@ module.exports = function (req, res, url) {
 		}
 		case 'POST': {
 			loadPost(req, res).then(data => listAssets(data, makeZip)).then(buff => {
-				if (useJson) {
-					type = 'application/json';
+				if (makeJson) {
+					type = makeJson ? 'application/json' : 'text/html';
 				} else {
 					type = makeZip ? 'application/zip' : 'text/xml';
 				}
