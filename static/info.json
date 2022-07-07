@@ -6,6 +6,12 @@
 			},
 			"content": "<cross-domain-policy><allow-access-from domain=\"*\"/></cross-domain-policy>"
 		},
+		"/goapi/getAssetTags": {
+			"headers": {
+				"Content-Type": "application/json"
+			},
+			"content": "[]"
+		},
 		"cc.swf": {},
 		"go_full.swf": {},
 		"favicon.ico": {},
@@ -55,12 +61,6 @@
 				"Content-Type": "text/html; charset=UTF-8"
 			},
 			"content": "<?xml encoding=\"UTF-8\"?><watermarks><current/><preview/></watermarks>"
-		},
-		"/goapi/getAssetTags": {
-			"headers": {
-				"Content-Type": "application/json"
-			},
-			"content": "[]"
 		},
 		"/goapi/getMovieInfo/": {
 			"headers": {
